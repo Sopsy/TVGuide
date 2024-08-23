@@ -1,0 +1,111 @@
+body:has(section#tv-guide) dialog {
+    .epg-program {
+        flex-direction: column;
+        gap: 8px;
+
+        .description,
+        &:not(.running) .description {
+            display: flex;
+            font-size: 1em;
+        }
+    }
+
+    .channel-name {
+        color: var(--meta-info-color);
+        font-weight: 600;
+        width: initial;
+    }
+
+    .start-time {
+        text-transform: capitalize;
+        font-weight: 600;
+    }
+
+    .upcoming-toggle {
+        margin: 8px 0 16px 0;
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        cursor: pointer;
+    }
+
+    .broadcast-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            div {
+                flex-direction: row;
+            }
+        }
+
+        &.hidden {
+            display: none;
+        }
+
+        .logo {
+            padding: 4px;
+            max-width: 200px;
+            overflow: hidden;
+        }
+
+        img {
+            display: block;
+            max-height: 20px;
+            object-fit: contain;
+            object-position: 0 0;
+        }
+    }
+
+    button.close-button {
+        margin: 8px 0 12px 0;
+    }
+
+    div:first-child .group-type  {
+        color: var(--text-color);
+        padding: 4px;
+        border-radius: 3px;
+    }
+
+    .channel-group-preferences {
+        margin: 0 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+
+        #name {
+            width: 50%;
+        }
+
+        div:first-child div {
+            display: flex;
+            flex-direction: row;
+            align-items:baseline;
+        }
+
+        .channel-options {
+            gap: 36px;
+            columns: 200px;
+
+            div {
+                width: 100%;
+                break-inside: avoid;
+                margin-bottom: 18px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .channel-option button {
+                font-size: 24px;
+            }
+        }
+
+        footer button:first-child {
+            width: 100%
+        }
+    }
+}

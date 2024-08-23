@@ -1,0 +1,71 @@
+section#tv-guide {
+    #header div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .epg-nav {
+        justify-content: space-between;
+
+        @media (max-width: 680px) {
+            flex-direction: column;
+            align-items: stretch;
+        }
+    }
+
+    .date-input {
+        position: relative;
+
+        input {
+            cursor: pointer;
+            position: absolute;
+            opacity: 0;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+
+            &::-webkit-calendar-picker-indicator {
+                padding: 0;
+                cursor: pointer;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+
+            /*noinspection CssInvalidPseudoSelector*/
+            &::-webkit-datetime-edit {
+                display: none;
+                width: 0;
+            }
+        }
+    }
+
+    #epg-search {
+        display: flex;
+        position: relative;
+
+        span.icon-magnifier {
+            --height: 20px;
+            position: absolute;
+            top: calc(50% - var(--height) / 2);
+            height: var(--height);
+            left: 8px;
+            background-color: var(--input-bg-color);
+            font-size: var(--height);
+        }
+
+        input {
+            padding: 8px 8px 8px 32px;
+            -webkit-appearance: textfield;
+
+            &::-webkit-search-cancel-button {
+                cursor: pointer;
+            }
+        }
+    }
+}

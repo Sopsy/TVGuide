@@ -1,0 +1,115 @@
+section#tv-guide {
+    .epg-channel-list {
+        display: grid;
+        gap: 16px;
+        margin: 8px 16px;
+        user-select: none;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+        @media (max-width: 900px) {
+            margin: 8px;
+        }
+    }
+
+    .epg-channel {
+        gap: 0;
+
+        .title {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .logo {
+            max-height: 35px;
+            object-fit: contain;
+        }
+    }
+
+    .logo-container {
+        .epg-channel:target & {
+            animation: 4s linear 1 highlight;
+        }
+    }
+
+    .epg-channel {
+        .daybreak {
+            background-color: var(--daybreak-bg-color);
+            padding: 4px;
+            text-transform: capitalize;
+            text-align: center;
+            margin: 0 !important;
+        }
+
+        .epg-program {
+            display: flex;
+            margin: 0 !important;
+
+            &.ended:not(:hover) {
+                opacity: 0.5;
+            }
+
+            &:last-child {
+                flex-grow: 1;
+            }
+
+            > div {
+                padding: 4px;
+
+                &:first-child {
+                    color: var(--link-color);
+                    width: 72px;
+                    flex: none;
+                    background-color: var(--c-pri-30);
+                    padding-left: 0;
+                }
+
+                &:last-child {
+                    flex-grow: 1;
+                    padding-right: 16px;
+                }
+            }
+
+            .time {
+                float: right
+            }
+
+            &.running .program-title {
+                font-weight: bold;
+            }
+
+            .episode {
+                opacity: 0.5;
+                font-size: 0.8em;
+            }
+
+            .description {
+                font-size: 0.9em;
+            }
+
+            &:not(.running) {
+                .description,
+                .progress,
+                .broadcast-start-time,
+                .broadcast-end-time {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .footer-tv-guide {
+        padding: 4px 16px 16px;
+
+        img#logo {
+            height: 2em;
+            border-radius: 5px;
+        }
+    }
+
+    .footer-heading {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+}

@@ -1,0 +1,154 @@
+<?php
+declare(strict_types=1);
+
+namespace Config;
+
+use TVGuide\Config\Contract\TVGuideConfig as TVGuideConfigInterface;
+
+use function date;
+use function sys_get_temp_dir;
+
+final readonly class TVGuideConfig implements TVGuideConfigInterface
+{
+    public function tempPath(): string
+    {
+        return sys_get_temp_dir() . '/tv-guide';
+    }
+
+    public function eurosportFtpServer(): string
+    {
+        return '';
+    }
+
+    public function eurosportFtpUsername(): string
+    {
+        return '';
+    }
+
+    public function eurosportFtpPassword(): string
+    {
+        return '';
+    }
+
+    public function eurosportFiles(): array
+    {
+        return [
+            '1fi' => 'EPG_Eurosport/EurosportFinland/' . date('Y') . '_6Weeks_DESCRIPTION_FINNISH.xml',
+            '2fi' => 'EPG_Eurosport/Eurosport2Sweden/' . date('Y') . '_3Weeks_DESCRIPTION_FINNISH.xml',
+        ];
+    }
+
+    public function eurosportDeleteSourceFiles(): bool
+    {
+        return false;
+    }
+
+    public function globalListingsFtpServer(): string
+    {
+        return '';
+    }
+
+    public function globalListingsFtpUsername(): string
+    {
+        return '';
+    }
+
+    public function globalListingsFtpPassword(): string
+    {
+        return '';
+    }
+
+    public function globalListingsDeleteSourceFiles(): bool
+    {
+        return false;
+    }
+
+    public function venetsiaFtpServer(): string
+    {
+        return '';
+    }
+
+    public function venetsiaFtpUsername(): string
+    {
+        return '';
+    }
+
+    public function venetsiaFtpPassword(): string
+    {
+        return '';
+    }
+
+    public function venetsiaDeleteSourceFiles(): bool
+    {
+        return false;
+    }
+
+    public function viacomApiUrl(): string
+    {
+        return 'http://epg.vimn.com/';
+    }
+
+    public function viacomChannels(): array
+    {
+        return [
+            'vh1_euro_classic' => 'eng',
+            'vh1_euro' => 'eng',
+            'paramount_network_finland' => 'fin',
+            'club_mtv_international' => 'eng',
+            'mtv_live_international' => 'eng',
+            'mtv_hits_uk' => 'uk',
+            'mtv_finland' => 'fin',
+            'nick_jr_nordics' => 'fin',
+        ];
+    }
+
+    public function pawaDiscoveryApiUrl(): string
+    {
+        return 'https://exports.pawa.tv/discovery/europe/';
+    }
+
+    public function pawaDiscoveryFiles(): array
+    {
+        return [
+            'APEUFIN-UTC.xml',
+            'DCFIFIN-UTC.xml'
+        ];
+    }
+
+    public function clipsourceApiUrl(): string
+    {
+        return 'https://api.clipsource.com/epg/v4.2.0';
+    }
+
+    public function clipsourceApiKey(): string
+    {
+        return '';
+    }
+
+    public function clipsourceChannels(): array
+    {
+        return [
+            'fi.viasat.jalkapallo.hd' => 'V sport jalkapallo',
+            'fi.viasat.jaakiekko.hd' => 'V sport jääkiekko',
+            'fi.viasat.urheilu.hd' => 'V sport urheilu',
+            'fi.viasat.sport' => 'V sport 1',
+            'fi.viasat.sport.premium' => 'V sport premium',
+            'fi.viasat.fotboll' => 'V sport football',
+            'fi.viasat.hockey' => 'V sport hockey',
+            'fi.viasat.golf' => 'V sport golf',
+            'fi.viasat.ultra.hd' => 'V sport ultra HD',
+            'fi.viasat.premiere' => 'V film premiere',
+            'fi.viasat.film.action' => 'V film action',
+            'fi.viasat.film.hits' => 'V film hits',
+            'fi.viasat.film.family' => 'V film family',
+            'fi.viasat.history' => 'Viasat History',
+            'fi.viasat.explore' => 'Viasat Explore',
+            'fi.viasat.nature' => 'Viasat Nature',
+            'fi.viasat.extra.1' => 'V sport live 1',
+            'fi.viasat.extra.2' => 'V sport live 2',
+            'fi.viasat.extra.3' => 'V sport live 3',
+            'fi.viasat.extra.4' => 'V sport live 4',
+            'fi.viasat.extra.5' => 'V sport live 5'
+        ];
+    }
+}
